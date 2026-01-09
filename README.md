@@ -1,36 +1,190 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Eurodib Frontend Application
 
-## Getting Started
+Next.js frontend application for Eurodib with Strapi CMS integration, multi-language support (en-CA, en-US, fr-CA), and full e-commerce functionality.
 
-First, run the development server:
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js 18+ 
+- pnpm (package manager)
+- Strapi backend running (local or cloud)
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Install dependencies
+pnpm install
+
+# Copy environment variables
+cp .env.example .env.local
+
+# Update .env.local with your Strapi URL
+STRAPI_URL=http://localhost:1337
+# or for Strapi Cloud:
+# STRAPI_URL=https://your-strapi-cloud-url.com
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Start development server
+pnpm dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Open http://localhost:3000
+```
 
-## Learn More
+### Production Build
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Build for production
+pnpm build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Start production server
+pnpm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Project Structure
 
-## Deploy on Vercel
+```
+eurodib-frontend/
+├── components/          # React components
+│   ├── layout/         # Header, Footer, MainLayout
+│   ├── account/        # Account-related components
+│   └── ...
+├── lib/
+│   ├── api/            # Strapi API integration
+│   ├── utils/          # Utilities (cart, locale, translations)
+│   └── types/          # TypeScript types
+├── pages/              # Next.js pages (file-based routing)
+├── public/             # Static assets (CSS, JS, images)
+└── styles/             # Global styles
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌍 Multi-Language Support
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application supports three locales:
+- `en-CA` (English - Canada) - Default
+- `en-US` (English - United States)
+- `fr-CA` (French - Canada)
+
+Language switching is handled via:
+- URL query parameter: `?locale=fr-CA`
+- Cookie storage
+- Browser language detection
+
+## 🔗 Strapi Integration
+
+### Connecting to Strapi Cloud
+
+1. Get your Strapi Cloud URL from the Strapi Cloud dashboard
+2. Update `.env.local`:
+   ```
+   STRAPI_URL=https://your-project.strapi.app
+   NEXT_PUBLIC_STRAPI_URL=https://your-project.strapi.app
+   ```
+3. If using authentication, add:
+   ```
+   STRAPI_TOKEN=your-api-token
+   ```
+
+### Content Types
+
+The application integrates with the following Strapi content types:
+- `homepage` - Homepage content
+- `brands-page` - Brands listing page
+- `about-us` - About Us page
+- `blog-post` - Blog posts
+- `product` - Products catalog
+- `category` - Product categories
+- `brand` - Brand information
+- And more...
+
+## 🎨 For Designers
+
+### Viewing the Application
+
+1. **Local Development**: 
+   - Ask developer to run `pnpm dev`
+   - Access at `http://localhost:3000`
+
+2. **Staging/Production**:
+   - Get deployment URL from developer
+   - Access the live version
+
+### Design Files Location
+
+- CSS files: `/public/CSS/`
+- Images: `/public/image/`
+- Global styles: `/styles/globals.css`
+
+### Key Pages
+
+- Homepage: `/`
+- Brands: `/brands`
+- Products: `/archive-page`
+- About Us: `/about-us`
+- Contact: `/contact-us`
+- Cart: `/cart`
+- Account: `/account`
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: CSS Modules + Global CSS
+- **State Management**: React Hooks + LocalStorage
+- **CMS**: Strapi (headless)
+- **Package Manager**: pnpm
+
+## 📝 Environment Variables
+
+Create `.env.local` file:
+
+```env
+# Strapi Configuration
+STRAPI_URL=http://localhost:1337
+NEXT_PUBLIC_STRAPI_URL=http://localhost:1337
+STRAPI_TOKEN=your-token-here
+
+# Next.js
+NODE_ENV=development
+```
+
+## 🔐 Security Notes
+
+- Never commit `.env.local` or `.env` files
+- Use `.env.example` as a template
+- Keep API tokens secure
+
+## 📦 Deployment
+
+### Vercel (Recommended)
+
+1. Connect GitHub repository to Vercel
+2. Set environment variables in Vercel dashboard
+3. Deploy automatically on push to `main`
+
+### Other Platforms
+
+The application can be deployed to any platform supporting Next.js:
+- Netlify
+- AWS Amplify
+- Railway
+- DigitalOcean App Platform
+
+## 🤝 Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Commit with descriptive messages
+4. Push and create a Pull Request
+
+## 📄 License
+
+Proprietary - Eurodib
+
+## 🔗 Links
+
+- **Strapi Repository**: https://github.com/marketingeurodib/eurodib-strapi-cloud
+- **Frontend Repository**: https://github.com/marketingeurodib/eurodib-frontend-cloud
