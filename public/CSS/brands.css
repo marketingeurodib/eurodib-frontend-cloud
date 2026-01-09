@@ -1,0 +1,856 @@
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+/* Main Header */
+  .main-header {
+    background: #ffffff;
+    border-bottom: 1px solid #ccc;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+     position: relative;
+  }
+  
+  .logo img {
+    max-height: 50px;
+    margin-top: -16px;
+  }
+  
+  /* Search Box */
+  .search-box {
+    flex: 1;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-box input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 30px 0 0 30px;
+  }
+  
+  .search-box button {
+    background: #286AB8;
+    padding: 10px;
+    border: none;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+  }
+  
+  .search-box button img {
+    width: 20px;
+    height: 20px;
+  }
+  
+ /* Header Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .action {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    color: black !important;
+  }
+  
+  .action img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .cart-img img{
+    width: 35px;
+    height: 32px;
+  }
+  
+  .action-text {
+    font-size: 16px;
+    text-align: left;
+  }
+  
+  /* Language Switcher Amazon Style */
+  .language-switcher-amazon-style {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    color: black !important;
+  }
+  
+  .lang-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background: #fff;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    min-width: 100px;
+  }
+  
+  .lang-selector:hover {
+    border-color: #128efb;
+  }
+  
+  .lang-flag {
+    width: 30px;
+    height: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  
+  .ca-flag {
+    background-image: url('https://flagcdn.com/ca.svg');
+  }
+  
+  .us-flag {
+    background-image: url('https://flagcdn.com/us.svg');
+  }
+  
+  .lang-text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+  }
+  
+  .lang-arrow {
+    font-size: 10px;
+    margin-left: auto;
+    margin-right: 4px;
+  }
+  
+  .lang-menu {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  
+  .lang-option {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .lang-option:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .lang-option .lang-flag {
+    margin-right: 8px;
+  }
+  
+  
+  /* Подключение Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+.nav-bar {
+  background: #286AB8;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.nav-menu li {
+  list-style: none;
+  margin: 0 15px;
+  position: relative;
+}
+
+.nav-menu a {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-menu a:hover {
+  text-decoration: underline;
+}
+
+/* Контейнер для треугольника */
+.dropdown-cooking-wrapper {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Показывать при hover */
+.has-dropdown:hover .dropdown-cooking-wrapper {
+  display: flex;
+}
+
+/* Треугольник */
+.dropdown-cooking-wrapper::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid white;
+  margin-bottom: -1px;
+  z-index: 1001;
+}
+
+/* Меню */
+.dropdown-cooking {
+  width: 425px;
+  height: 235px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-cooking-content {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.dropdown-cooking-content ul {
+list-style: none;
+  margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-left: 20px;
+  padding-top: 25px;
+
+}
+
+.dropdown-cooking-content ul li {
+  font-size: 14px;
+  font-weight: 600;
+  color: #827F7F;
+  cursor: pointer;
+  transition: color 0.2s;
+  width: 170px;
+}
+
+.dropdown-cooking-content ul li:hover {
+  color: #286AB8;
+}
+
+.dropdown-cooking-content img {
+  width: 200px;
+  height: 259px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Dropdown Brands Wrapper */
+.dropdown-brands-wrapper {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+.has-dropdown:hover .dropdown-brands-wrapper {
+  display: flex;
+}
+
+/* Triangle */
+.dropdown-brands-wrapper::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+  margin-bottom: -1px;
+  z-index: 1001;
+}
+
+/* Brands Dropdown Styling */
+.dropdown-brands {
+  width: 158px;
+  height: 358px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-brands ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.dropdown-brands ul li {
+  font-size: 14px;
+  font-weight: 600;
+  color: #827F7F;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.dropdown-brands ul li:hover {
+  color: #286AB8;
+}
+
+  
+
+
+
+
+
+.search-dropdown {
+position: absolute;
+  top: 89%;
+  left: 0px;
+  right: 16%;
+  margin: 0 auto;
+  width: 723px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: none;
+  padding: 30px;
+  gap: 40px;
+  z-index: 9999;
+}
+
+.search-section {
+  width: 234px;
+  margin-right: 30px;
+}
+
+
+.search-dropdown.active {
+    display: flex;
+}
+
+.search-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #827F7F;
+    margin-bottom: 15px;
+}
+
+.search-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-section ul li {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.product-item img {
+    width: 60px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info strong {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    width: 203px;
+    text-align: left;
+}
+
+.product-info span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ .breadcrumbs {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 24px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 13px;
+  margin-bottom: 13px;
+  margin-left: 120px;
+
+  }
+
+  .breadcrumbs a {
+    text-decoration: none;
+    color: #555;
+  }
+  .breadcrumbs a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumbs .sep {
+    margin: 0 8px;
+    color: #888;
+  }
+
+.brands-section {
+      font-family: "Montserrat", Arial, sans-serif;
+      background: #ffffff;
+      padding: 64px 120px;
+      color: #142414;
+    }
+
+    /* Заголовок и описание */
+   .brands-section__header {
+  text-align: center;
+  margin: 0 auto 36px;
+  margin-left: 120px;
+  margin-right: 120px;
+}
+    .brands-section__title {
+      font-weight: 700;
+      font-size: 31px;
+      color: #2f6ec9;
+      margin: 0 0 10px;
+    }
+
+    .brands-section__subtitle {
+      font-size: 24px;
+      color: #5a5a5a;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+
+    .brands-card__logo img {
+    height: 100%;
+    }
+
+    /* Сетка карточек */
+    .brands-section__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Карточка */
+    .brands-card {
+      background: #ffffff;
+      border: 1px solid #e4e7ec;
+      border-radius: 14px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+      padding: 24px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 180px;
+    }
+
+    /* Логотип */
+    .brands-card__logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
+      margin-bottom: 12px;
+    }
+
+    .brands-card__logo img {
+      max-height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* Текст */
+    .brands-card__text {
+      font-size: 14px;
+      color: black;
+      line-height: 1.6;
+      margin: 0 0 14px;
+      max-width: 95%;
+    }
+
+    /* Ссылка */
+    .brands-card__link {
+      font-weight: 700;
+      font-size: 16px;
+      color: #286AB8;
+      text-decoration: none;
+    }
+
+    /* Центрирование последней строки (2 карточки) */
+    .brands-card--empty {
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 1200px) {
+      .brands-section {
+        padding: 56px 60px;
+      }
+      .brands-section__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .brands-card--empty {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .brands-section {
+        padding: 48px 20px;
+      }
+      .brands-section__grid {
+        grid-template-columns: 1fr;
+      }
+      .brands-section__title {
+        font-size: 22px;
+      }
+      .brands-card {
+        padding: 20px;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Email Signup */
+.custom-email-signup {
+  background-color: #286AB8;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-signup-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1160px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.custom-signup-title {
+  color: white;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 20px;
+  flex: 1;
+  text-align: center;
+}
+
+.custom-signup-form {
+  display: flex;
+  flex-direction: row;
+  border-radius: 50px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.custom-signup-form input[type="email"] {
+  border: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  border-radius: 0;
+  outline: none;
+  width: 300px;
+}
+
+.custom-signup-form button {
+  background-color: #001041;
+  color: white;
+  padding: 15px 30px;
+  font-size: 16px;
+  border: none;
+  font-weight: 700;
+}
+  
+  /* Footer */
+  .footer {
+    background: #001037;
+    color: white;
+    padding: 40px 0 20px;
+    font-size: 14px;
+  }
+  
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-right: 120px;
+    margin-left: 120px;
+  }
+  
+  .footer-logo {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .footer-logo img {
+    max-height: 50px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-logo p {
+    margin-bottom: 15px;
+    width: 325px;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .social-icons img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  /* Footer Links */
+  .footer-links {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: auto;
+  }
+  
+  .footer-column {
+    min-width: 180px;
+    margin-bottom: 20px;
+    display: grid;
+  }
+  
+  .footer-column h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer-column ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Quick Help Buttons */
+  .footer-btn {
+    width: 100% !important;
+    background: #0066cc;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .footer-btn.outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+  }
+  
+  .quick-links {
+    list-style: none;
+    margin-top: 10px;
+  }
+  
+  .quick-links li {
+    margin-bottom: 5px;
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    border-top: 1px solid #6a6a6a;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 12px;
+  }
+  
+  .policy-links {
+    margin-top: 10px;
+  }
+  
+  .policy-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  .policy-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Footer */
+  @media (max-width: 768px) {
+    .signup-container {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+    }
+    
+    .footer-top {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .footer-links {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  
+
+
+  
